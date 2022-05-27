@@ -11,6 +11,8 @@
 		B88BC5D12840DA3F008E4695 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BC5D02840DA3F008E4695 /* ContentView.swift */; };
 		B88BC5D32840DA41008E4695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88BC5D22840DA41008E4695 /* Assets.xcassets */; };
 		B88BC5D62840DA41008E4695 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88BC5D52840DA41008E4695 /* Preview Assets.xcassets */; };
+		B88BC5DD2840DA5C008E4695 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BC5DC2840DA5C008E4695 /* Cell.swift */; };
+		B88BC5DF2840DB4A008E4695 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BC5DE2840DB4A008E4695 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		B88BC5D02840DA3F008E4695 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B88BC5D22840DA41008E4695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B88BC5D52840DA41008E4695 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B88BC5DC2840DA5C008E4695 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		B88BC5DE2840DB4A008E4695 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				B88BC5D02840DA3F008E4695 /* ContentView.swift */,
 				B88BC5D22840DA41008E4695 /* Assets.xcassets */,
 				B88BC5D42840DA41008E4695 /* Preview Content */,
+				B88BC5DC2840DA5C008E4695 /* Cell.swift */,
+				B88BC5DE2840DB4A008E4695 /* ViewModel.swift */,
 			);
 			path = GameLife;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			files = (
 				B88BC5D12840DA3F008E4695 /* ContentView.swift in Sources */,
 				B88BC5CF2840DA3F008E4695 /* GameLifeApp.swift in Sources */,
+				B88BC5DF2840DB4A008E4695 /* ViewModel.swift in Sources */,
+				B88BC5DD2840DA5C008E4695 /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
