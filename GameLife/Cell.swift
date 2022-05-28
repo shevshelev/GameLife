@@ -28,3 +28,9 @@ struct Cell {
         }
     }
 }
+
+extension Cell: Equatable {
+    static func ==(lhs: Cell, rhs: Cell) -> Bool {
+        lhs.x == rhs.x && lhs.y == rhs.y && lhs.state == rhs.state
+    }
+}

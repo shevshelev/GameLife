@@ -17,7 +17,7 @@ struct ContentView: View {
             count: viewModel.size
         )
     }
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -34,21 +34,29 @@ struct ContentView: View {
                                 width: geometry.size.width / CGFloat(viewModel.size),
                                 height: geometry.size.width / CGFloat(viewModel.size)
                             )
-                            .onTapGesture {
-                                print("[\(viewModel.cells[i].x) : \(viewModel.cells[i].y)]")
-                            }
                     }
                 }
                 Spacer()
                 HStack(alignment: .center, spacing: 100) {
                     Button(action: viewModel.startLive) {
                         Text(viewModel.startButtonTitle)
-                            .foregroundColor(viewModel.isAlive ? .red : .blue)
+                            .foregroundColor(
+                                viewModel.isAlive
+                                ?.red
+                                : viewModel.isOver
+                                ? .gray
+                                : .blue)
                     }
+                    .disabled(viewModel.isOver)
                     Button("Randomize") {
                         viewModel.getFirstGeneration()
                     }
                     .disabled(viewModel.isAlive)
+                }
+                .alert("Life is over!", isPresented: $viewModel.isOver) {
+                    Button("Start all over again") {
+                        viewModel.getFirstGeneration()
+                    }
                 }
                 Spacer()
             }

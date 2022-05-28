@@ -13,6 +13,7 @@ class ViewModel: ObservableObject {
     @Published var isAlive: Bool = false
     @Published var isOver: Bool = false
     private var timer: Timer?
+    private var prevCells: [Cell]?
     let size: Int = 50
     
     init() {
@@ -46,14 +47,17 @@ class ViewModel: ObservableObject {
                 cells.append(cell)
             }
         }
+        isAlive = false
+        isOver = false
+        startButtonTitle = "Start"
         self.cells = cells
     }
     
     @objc private func updateCells() {
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInitiated).sync {
             var updatedCells:[Cell] = []
-            let liveCells = self.cells.filter { $0.state == .alive }
-            for cell in self.cells {
+            let liveCells = cells.filter { $0.state == .alive }
+            for cell in cells {
                 let livingNeighbors = liveCells.filter { $0.isNeighbor(to: cell) }
                 switch livingNeighbors.count {
                 case 2...3 where cell.state == .alive:
@@ -66,8 +70,17 @@ class ViewModel: ObservableObject {
                     updatedCells.append(deadCell)
                 }
             }
-            DispatchQueue.main.async {
-                self.cells = updatedCells
+            DispatchQueue.main.async {[unowned self] in
+                if updatedCells != prevCells && updatedCells != cells {
+                    prevCells = cells
+                    cells = updatedCells
+                } else {
+                    isAlive = false
+                    isOver = true
+                    startButtonTitle = "Life is over"
+                    timer?.invalidate()
+                    timer = nil
+                }
             }
         }
     }
